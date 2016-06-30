@@ -1,8 +1,8 @@
 all: push
 
 # 0.0 shouldn't clobber any released builds
-TAG = 0.4
-PREFIX = ravihansa3000/servicelb
+TAG = 0.1
+PREFIX = ravihansa/wso2-servicelb
 HAPROXY_IMAGE = contrib-haproxy
 
 server: service_loadbalancer.go

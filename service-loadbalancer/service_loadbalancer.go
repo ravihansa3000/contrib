@@ -507,7 +507,7 @@ func (lbc *loadBalancerController) getServices() (httpSvc []service, httpsTermSv
 			if val, ok := serviceAnnotations(s.ObjectMeta.Annotations).getSslProxy(servicePort.Name); ok {
 				b, err := strconv.ParseBool(val)
 				if err == nil {
-					newSvc.SslTerm = b
+					newSvc.SslProxy = b
 				}
 			}
 
@@ -536,6 +536,7 @@ func (lbc *loadBalancerController) getServices() (httpSvc []service, httpsTermSv
 	}
 
 	sort.Sort(serviceByName(httpSvc))
+	sort.Sort(serviceByName(httpsSvc))
 	sort.Sort(serviceByName(httpsTermSvc))
 	sort.Sort(serviceByName(tcpSvc))
 
